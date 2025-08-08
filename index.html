@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akhil Ajith Nair - Portfolio</title>
+  <style>
+    :root {
+      --black: #0d0d0d;
+      --yellow: #ffcc00;
+      --white: #ffffff;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    /* Header */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      animation: slideDown 1s ease;
+      backdrop-filter: blur(5px);
+    }
+    header h1 {
+      color: var(--yellow);
+      font-size: 1.5em;
+    }
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--yellow);
+    }
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--white);
+      transition: 0.3s;
+    }
+    /* Mobile menu */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        width: 200px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      nav.active {
+        transform: translateX(0);
+      }
+      nav a {
+        margin: 10px 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    /* Sections */
+    section {
+      min-height: 100vh;
+      padding: 100px 50px 50px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      position: relative;
+      z-index: 1;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: var(--yellow);
+      margin-bottom: 20px;
+    }
+    .skills, .experience, .education {
+      display: grid;
+      gap: 15px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-left: 5px solid var(--yellow);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    footer {
+      background: rgba(0,0,0,0.9);
+      text-align: center;
+      padding: 20px;
+      color: var(--white);
+      position: relative;
+      z-index: 2;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    @keyframes slideDown {
+      from {transform: translateY(-100%);}
+      to {transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<header>
+  <h1>Akhil Ajith Nair</h1>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="nav-menu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Senior Software Engineer with 8.5 years of experience in full-stack development, cloud-native micro-services, and technical leadership. Proven expertise in .NET, Angular, Kafka, Docker, Database, Kubernetes, Azure, AWS, and Gen-AI tools with a strong focus on scalable, high-performance systems. Demonstrated success in delivering business-critical solutions for logistics and automotive industries, including international project deployments.</p>
+</section>
+
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div class="card"><strong>Languages & Frameworks:</strong> C#, .NET Core 8, Angular (v18, NgRx, RxJS, SSR), JavaScript, Java</div>
+    <div class="card"><strong>AI:</strong> Gen-AI tools like Claude Sonnet and Augment Code</div>
+    <div class="card"><strong>Databases:</strong> SQL Server, Oracle, MongoDB</div>
+    <div class="card"><strong>Cloud & DevOps:</strong> Docker, Kubernetes, Azure, Rancher, AWS</div>
+    <div class="card"><strong>Messaging & Event Streaming:</strong> Apache Kafka</div>
+    <div class="card"><strong>Architecture & Tools:</strong> Micro-services, REST APIs, GraphQL</div>
+    <div class="card"><strong>Mobile Development:</strong> Android, iOS</div>
+    <div class="card"><strong>Search & Logging:</strong> ElasticSearch</div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Professional Experience</h2>
+  <div class="experience">
+    <div class="card">
+      <h3>Tech Lead / Senior Software Development Engineer (SDE III) - Charger Logistics Inc</h3>
+      <p><em>Nov 2022 - Present | Brampton, Canada</em></p>
+      <ul>
+        <li>Led end-to-end migration of a legacy border-crossing system to Angular 18+ and .NET Core 8.</li>
+        <li>Designed event-driven micro-services with Kafka, SQL, Mongo, Elastic, and Azure DevOps.</li>
+        <li>Deployed real-time data pipelines for high-throughput logistics operations across US, Canada, and Mexico.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Software Development Engineer (SDE-I, SDE-II) - AVL India Pvt. Ltd.</h3>
+      <p><em>Jan 2017 - Nov 2022 | Gurugram, India</em></p>
+      <ul>
+        <li>Developed Angular and .NET-based event architecture web applications for vehicle diagnostics.</li>
+        <li>Improved legacy system performance by up to 20%.</li>
+        <li>Completed 1-year onsite at AVL HQ, Graz, Austria with BMW Steyr team.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="education">
+    <div class="card">
+      <h3>B.Tech, Computer Science Engineering</h3>
+      <p>Cochin University of Science and Technology | Aug 2012 - Apr 2016</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:akhilajithnair@gmail.com" style="color: var(--yellow);">akhilajithnair@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/akhil-ajith-nair/" style="color: var(--yellow);">linkedin.com/in/akhil-ajith-nair</a></p>
+  <p>Phone: +91-9717625171</p>
+</section>
+
+<footer>
+  <p>© 2025 Akhil Ajith Nair. All Rights Reserved.</p>
+</footer>
+
+<!-- Particle.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 50 },
+    color: { value: "#ffcc00" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    move: { enable: true, speed: 1 }
+  }
+});
+
+// Scroll animation
+const sections = document.querySelectorAll("section");
+const revealOnScroll = () => {
+  const triggerBottom = window.innerHeight * 0.85;
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < triggerBottom) {
+      sec.classList.add("visible");
+    }
+  });
+};
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+// Hamburger menu toggle
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
+
+hamburger.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  hamburger.classList.toggle("open");
+});
+</script>
+
+</body>
+</html>
