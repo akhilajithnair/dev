@@ -5,44 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Akhil Ajith Nair — Portfolio</title>
 
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    /* --------------------------
-       Font: Apple-style system stack
-       - Uses SF on Apple devices automatically
-       - Falls back to Segoe/Roboto/Helvetica/Arial on other OSes
-       --------------------------*/
     :root{
       --black: #0d0d0d;
       --yellow: #ffcc00;
       --white: #ffffff;
     }
 
-    /* If you have an SF Pro license and want to self-host, uncomment
-       the @font-face below and provide the correct file paths.
-       (Apple's SF Pro is proprietary; do not host without a license.)
-    */
-    /*
-    @font-face {
-      font-family: "SF Pro Text";
-      src: url("/fonts/SFProText-Regular.woff2") format("woff2"),
-           url("/fonts/SFProText-Regular.woff") format("woff");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "SF Pro Text";
-      src: url("/fonts/SFProText-Semibold.woff2") format("woff2");
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-    */
-
-    /* Apple / system UI font stack (recommended) */
+    /* Use Inter everywhere */
     html, body {
-      font-family: -apple-system, "SF Pro Text", "SF Pro Display",
-                   "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       background: var(--black);
@@ -54,20 +29,14 @@
       overflow-x: hidden;
     }
 
-    /* Base typographic scale (Apple-like spacing & weight) */
     :root {
       --base-size: 16px;
       font-size: var(--base-size);
       --leading: 1.45;
     }
-    h1, h2, h3, p, a, li {
-      line-height: var(--leading);
-    }
-
-    /* Generic reset */
+    h1, h2, h3, p, a, li { line-height: var(--leading); }
     * { box-sizing: border-box; }
 
-    /* Header */
     header {
       position: fixed;
       width: 100%;
@@ -85,12 +54,11 @@
     header h1 {
       margin: 0;
       font-size: 18px;
-      font-weight: 600; /* semibold like Apple headings */
+      font-weight: 600;
       color: var(--yellow);
       letter-spacing: 0.2px;
     }
 
-    /* Nav */
     nav {
       display: flex;
       align-items: center;
@@ -106,24 +74,22 @@
     }
     nav a:hover { color: var(--yellow); transform: translateY(-1px); }
 
-    /* Hamburger (mobile) */
     .hamburger { display: none; cursor: pointer; gap: 6px; flex-direction: column; }
     .hamburger span {
       width: 22px; height: 2px; background: var(--white);
-      display: block; border-radius: 2px; transition: transform .25s ease, opacity .25s ease;
+      border-radius: 2px; transition: transform .25s ease, opacity .25s ease;
     }
     .hamburger.open span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
     .hamburger.open span:nth-child(2){ opacity: 0; }
     .hamburger.open span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
 
-    /* Sections */
     main { position: relative; z-index: 2; }
     section {
       min-height: 100vh;
       padding: 110px 28px 64px;
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity .8s cubic-bezier(.16,.84,.32,1), transform .8s cubic-bezier(.16,.84,.32,1);
+      transition: opacity .8s ease, transform .8s ease;
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -141,7 +107,6 @@
       color: rgba(255,255,255,0.92);
     }
 
-    /* Cards */
     .grid { display: grid; gap: 14px; }
     .card {
       background: rgba(255,255,255,0.03);
@@ -166,10 +131,8 @@
       border-top: 1px solid rgba(255,255,255,0.03);
     }
 
-    /* Particles behind content */
     #particles-js { position: fixed; inset: 0; z-index: 0; }
 
-    /* Responsive layout */
     @media (min-width: 768px){
       .skills { grid-template-columns: repeat(2, 1fr); }
       .experience { grid-template-columns: repeat(1, 1fr); }
@@ -179,8 +142,6 @@
       .experience { grid-template-columns: repeat(2, 1fr); }
       section { padding-left: 40px; padding-right: 40px; }
     }
-
-    /* Mobile nav behavior */
     @media (max-width: 768px){
       nav {
         position: fixed;
@@ -192,7 +153,7 @@
         flex-direction: column;
         align-items: flex-start;
         transform: translateX(110%);
-        transition: transform .28s cubic-bezier(.2,.9,.2,1);
+        transition: transform .28s ease;
         box-shadow: -20px 40px 80px rgba(0,0,0,0.6);
       }
       nav.active { transform: translateX(0); }
@@ -201,8 +162,6 @@
       header { padding: 12px 16px; }
       section { padding-top: 94px; padding-left: 18px; padding-right: 18px; }
     }
-
-    /* subtle utility */
     .contact-links a { color: var(--yellow); text-decoration: none; font-weight: 600; }
   </style>
 </head>
@@ -211,12 +170,8 @@
 
   <header>
     <h1>Akhil Ajith Nair</h1>
-
-    <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
-      <span></span><span></span><span></span>
-    </div>
-
-    <nav id="nav-menu" aria-label="Primary navigation">
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <nav id="nav-menu">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
@@ -228,13 +183,13 @@
   <main>
     <section id="about" class="visible">
       <h2>About Me</h2>
-      <p>Senior Software Engineer with 8.5 years of experience in full-stack development, cloud-native micro-services, and technical leadership. Proven expertise in .NET, Angular, Kafka, Docker, Database, Kubernetes, Azure, AWS, and Gen-AI tools with a strong focus on scalable, high-performance systems. Demonstrated success in delivering business-critical solutions for logistics and automotive industries, including international project deployments.</p>
+      <p>Senior Software Engineer with 8.5 years of experience in full-stack development, cloud-native micro-services, and technical leadership. Proven expertise in .NET, Angular, Kafka, Docker, Database, Kubernetes, Azure, AWS, and Gen-AI tools with a strong focus on scalable, high-performance systems.</p>
     </section>
 
     <section id="skills">
       <h2>Technical Skills</h2>
       <div class="grid skills">
-        <div class="card"><strong>Languages & Frameworks:</strong> C#, .NET Core 8, Angular (v18, NgRx, RxJS, SSR), JavaScript, Java</div>
+        <div class="card"><strong>Languages & Frameworks:</strong> C#, .NET Core 8, Angular (v18...), JavaScript, Java</div>
         <div class="card"><strong>AI:</strong> Gen-AI tools like Claude Sonnet and Augment Code</div>
         <div class="card"><strong>Databases:</strong> SQL Server, Oracle, MongoDB</div>
         <div class="card"><strong>Cloud & DevOps:</strong> Docker, Kubernetes, Azure, Rancher, AWS</div>
@@ -249,22 +204,19 @@
       <h2>Professional Experience</h2>
       <div class="grid experience">
         <div class="card">
-          <h3 style="margin:0 0 6px 0; font-weight:600;">Tech Lead / Senior Software Development Engineer (SDE III)</h3>
-          <div class="muted">Charger Logistics Inc — Nov 2022 - Present | Brampton, Canada</div>
-          <ul style="margin-top:10px;">
-            <li>Led migration of a legacy border-crossing system to Angular 18+ and .NET Core 8.</li>
-            <li>Designed event-driven micro-services using Kafka, SQL, Mongo, Elastic and Azure DevOps.</li>
-            <li>Deployed real-time data pipelines across US, Canada and Mexico.</li>
+          <h3>Tech Lead / Senior SDE III</h3>
+          <div class="muted">Charger Logistics Inc — Nov 2022 - Present</div>
+          <ul>
+            <li>Migrated border-crossing system to Angular 18+ & .NET Core 8.</li>
+            <li>Designed event-driven micro-services with Kafka, SQL, Mongo, Elastic, Azure DevOps.</li>
           </ul>
         </div>
-
         <div class="card">
-          <h3 style="margin:0 0 6px 0; font-weight:600;">Software Development Engineer (SDE-I, SDE-II)</h3>
-          <div class="muted">AVL India Pvt. Ltd. — Jan 2017 - Nov 2022 | Gurugram, India</div>
-          <ul style="margin-top:10px;">
-            <li>Built Angular + .NET web applications for vehicle diagnostics and engine test beds.</li>
-            <li>Optimized legacy systems to improve performance up to 20%.</li>
-            <li>One-year onsite at AVL HQ, Graz (collaboration with BMW Steyr).</li>
+          <h3>SDE-I / SDE-II</h3>
+          <div class="muted">AVL India Pvt. Ltd. — Jan 2017 - Nov 2022</div>
+          <ul>
+            <li>Built Angular + .NET apps for vehicle diagnostics.</li>
+            <li>Improved legacy system performance by 20%.</li>
           </ul>
         </div>
       </div>
@@ -274,8 +226,8 @@
       <h2>Education</h2>
       <div class="grid education">
         <div class="card">
-          <h3 style="margin:0 0 6px 0; font-weight:600;">B.Tech — Computer Science Engineering</h3>
-          <div class="muted">Cochin University of Science and Technology — Aug 2012 - Apr 2016</div>
+          <h3>B.Tech — Computer Science Engineering</h3>
+          <div class="muted">Cochin University — 2012 - 2016</div>
         </div>
       </div>
     </section>
@@ -283,64 +235,26 @@
     <section id="contact">
       <h2>Contact</h2>
       <p class="contact-links">Email: <a href="mailto:akhilajithnair@gmail.com">akhilajithnair@gmail.com</a></p>
-      <p class="contact-links">LinkedIn: <a href="https://www.linkedin.com/in/akhil-ajith-nair/" target="_blank" rel="noopener noreferrer">linkedin.com/in/akhil-ajith-nair</a></p>
+      <p class="contact-links">LinkedIn: <a href="https://www.linkedin.com/in/akhil-ajith-nair/">linkedin.com/in/akhil-ajith-nair</a></p>
       <p class="contact-links">Phone: <strong>+91-9717625171</strong></p>
     </section>
   </main>
 
   <footer>© 2025 Akhil Ajith Nair. All Rights Reserved.</footer>
 
-  <!-- Particles.js (subtle yellow particles) -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
-      particles: {
-        number: { value: 36, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffcc00" },
-        shape: { type: "circle" },
-        opacity: { value: 0.45, random: true },
-        size: { value: 3, random: true },
-        move: { enable: true, speed: 0.8, random: true, out_mode: "out" }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: { onhover: { enable: false }, onclick: { enable: false } }
-      },
-      retina_detect: true
+      particles: { number: { value: 36 }, color: { value: "#ffcc00" }, shape: { type: "circle" },
+        opacity: { value: 0.45 }, size: { value: 3, random: true }, move: { enable: true, speed: 0.8 }
+      }, retina_detect: true
     });
-  </script>
-
-  <!-- Scroll reveal -->
-  <script>
-    const sections = document.querySelectorAll('section');
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.82;
-      sections.forEach(s => {
-        const top = s.getBoundingClientRect().top;
-        if (top < trigger) s.classList.add('visible');
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-  </script>
-
-  <!-- Hamburger toggle -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav-menu');
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      hamburger.classList.toggle('open');
-    });
-    // close menu on link click (mobile)
-    document.querySelectorAll('#nav-menu a').forEach(a => {
-      a.addEventListener('click', () => {
-        if (nav.classList.contains('active')) {
-          nav.classList.remove('active');
-          hamburger.classList.remove('open');
-        }
-      });
-    });
+    const sections=document.querySelectorAll('section');
+    const reveal=()=>{const t=window.innerHeight*0.82;sections.forEach(s=>{if(s.getBoundingClientRect().top<t)s.classList.add('visible')});};
+    window.addEventListener('scroll',reveal);reveal();
+    const hamburger=document.getElementById('hamburger'),nav=document.getElementById('nav-menu');
+    hamburger.addEventListener('click',()=>{nav.classList.toggle('active');hamburger.classList.toggle('open')});
+    document.querySelectorAll('#nav-menu a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('active');hamburger.classList.remove('open');}));
   </script>
 </body>
 </html>
